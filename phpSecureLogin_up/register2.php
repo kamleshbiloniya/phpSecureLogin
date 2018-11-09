@@ -25,8 +25,15 @@ include_once 'includes/functions.php';
         <title>Secure Login: Registration Form</title>
         <script type="text/JavaScript" src="js/sha512.js"></script> 
         <script type="text/JavaScript" src="js/forms.js"></script>
+        <script type="text/JavaScript" src="password.js"></script>
+        
+
+
+
         <link rel="stylesheet" href="styles/main.css" />
     </head>
+    
+
     <body>
         <!-- Registration form to be output if the POST variables are not
         set or if the registration script caused an error. -->
@@ -56,13 +63,28 @@ include_once 'includes/functions.php';
         
  ?>
 
-        
+
         <form method="post" name="registration_form" action="">
             Username: <input type='hidden' name='username' id='username' value =<?php echo $_GET['username'] ?> /> <br>
             Email: <input type="hidden" name="email" id="email" value = <?php echo $_GET['email'] ?>/><br>
             Password: <input type="password"
                              name="password" 
-                             id="password"/><br>
+                             id="password"/>
+
+
+
+
+             <input type="button" name="strength_teller" value="Check Strength" onclick="Strength()">
+        <div>
+            Strength:
+            <div class="figure" id="strength_human"></div>    
+            <div class="figure" id="strength_score"></div>
+        </div>
+       
+
+        
+
+            <br>
             Confirm password: <input type="password" 
                                      name="confirmpwd" 
                                      id="confirmpwd" /><br>
@@ -80,7 +102,7 @@ include_once 'includes/functions.php';
             echo $_POST['']
 
         ?>
-        <p>Return to the <a href="register.php">STEP 1 of Registration</a>.</p><br>
+        <p>Return to the <a href="register1.php">STEP 1 of Registration</a>.</p><br>
         <p>Return to the <a href="index.php">login page</a>.</p>
     </body>
 </html>
